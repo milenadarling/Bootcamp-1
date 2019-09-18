@@ -9,7 +9,7 @@ var fs = require('fs'),
   
 
 /* Connect to your database using mongoose - remember to keep your key secret*/
-
+mongoose.connect(config.db.uri);
 /* Fill out these functions using Mongoose queries*/
 //Check out - https://mongoosejs.com/docs/queries.html
 
@@ -21,6 +21,7 @@ var findLibraryWest = function() {
   Listing.findOne({name: 'Library West'}, function(err,data)
   {
     if(err) throw err;
+   
     console.log(data);
   });
 };
@@ -34,8 +35,10 @@ var removeCable = function() {
    Listing.find({code: 'CABL'}, function(err,data){
      if(err) throw err;
      data.remove(function(err){
-       if(err) throw err;
-       console.log(data);
+      
+      if(err) throw err;
+      
+      console.log(data);
      })
    });
 };

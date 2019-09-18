@@ -19,15 +19,13 @@ mongoose.connect(config.db.uri,
   });
   mongoose.set('useCreateIndex', true);
 
-var connection = mongoose.connection;
-
 fs.readFileSync('./listings.json', 'utf8', function(err, data)
 {
   if (err) throw err;
 
-  listings = JSON.parse(data);
+  var listings = JSON.parse(data);
 
-  listings.entries.forEach(function(newlisting) {
+  listings.entries.forEach(function(data) {
     var newlisting = new listing
     ({
 

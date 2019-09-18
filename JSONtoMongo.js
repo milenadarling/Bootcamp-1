@@ -18,16 +18,21 @@ var connection = mongoose.connection;
 
 fs.readFileSync('listings.json', 'utf8', function(err, data)
 {
+  if (err) throw err;
+
   listings = JSON.parse(data);
 
-  console.log(listings.entries.lenght);
+  listings.entries.forEach(function(listings) {
+    var listing = new newlistings(listings)
+    
+    listing.save(function(err)
+    {
+      if (err) throw err;
+    });
 
-  for(var i = 0; i < listingsData.lenght; i++)
-  {
+  });
 
-  }
-
-}
+});
 /* 
   Instantiate a mongoose model for each listing object in the JSON file, 
   and then save it to your Mongo database 

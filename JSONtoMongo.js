@@ -38,8 +38,6 @@ fs.readFile('listings.json', 'utf8', function(err, data)
     newlisting.save(function(err)
     {
       if (err) throw err;
-      else
-        console.log('Data successfully saved');
     });
   }
 

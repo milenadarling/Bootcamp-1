@@ -21,7 +21,7 @@ mongoose.connect(config.db.uri,
 
 var connection = mongoose.connection;
 
-fs.readFileSync('listings.json', 'utf8', function(err, data)
+fs.readFileSync('./listings.json', 'utf8', function(err, data)
 {
   if (err) throw err;
 

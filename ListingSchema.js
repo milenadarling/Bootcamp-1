@@ -18,7 +18,7 @@ var listingSchema = new Schema({
   {
     type: String,
     required: true,
-    unique: true
+    unique: false
   },
   coordinates:
   {

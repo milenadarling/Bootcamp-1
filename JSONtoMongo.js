@@ -17,6 +17,7 @@ mongoose.connect(config.db.uri,
     useNewUrlParser:true, 
     useUnifiedTopology: true 
   });
+  mongoose.set('useCreateIndex', true);
 
 var connection = mongoose.connection;
 

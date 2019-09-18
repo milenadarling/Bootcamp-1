@@ -12,7 +12,22 @@ var fs = require('fs'),
 /* Connect to your database using mongoose - remember to keep your key secret*/
 //see https://mongoosejs.com/docs/connections.html
 //See https://docs.atlas.mongodb.com/driver-connection/
+mongoose.connect(config.db.uri);
 
+var connection = mongoose.connection;
+
+fs.readFileSync('listings.json', 'utf8', function(err, data)
+{
+  listings = JSON.parse(data);
+
+  console.log(listings.entries.lenght);
+
+  for(var i = 0; i < listingsData.lenght; i++)
+  {
+
+  }
+
+}
 /* 
   Instantiate a mongoose model for each listing object in the JSON file, 
   and then save it to your Mongo database 

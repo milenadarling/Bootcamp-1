@@ -26,8 +26,7 @@ var listingSchema = new Schema({
     longitude:Number
   },
   address: String,
-  created_at: Date,
-  updated_at: Date
+  
   //Check out - https://mongoosejs.com/docs/guide.html
 
 });

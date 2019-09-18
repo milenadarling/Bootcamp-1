@@ -9,7 +9,12 @@ var fs = require('fs'),
   
 
 /* Connect to your database using mongoose - remember to keep your key secret*/
-mongoose.connect(config.db.uri);
+mongoose.connect(config.db.uri,
+{
+  useNewUrlParser:true, 
+   useUnifiedTopology: true 
+ });
+mongoose.set('useCreateIndex', true);
 /* Fill out these functions using Mongoose queries*/
 //Check out - https://mongoosejs.com/docs/queries.html
 

@@ -25,15 +25,21 @@ fs.readFile('listings.json', 'utf8', function(err, data)
 
   var listings = JSON.parse(data);
 
-  listings.entries.forEach(function(element)
+  for(var i = 0; i< listings.entries.length; i++)
   {
-    var newlisting = new Listing(element);
-    
+    var newlisting = new Listing();
+
+    newlisting.code = listings.entries[i].code;
+    newlisting.name = listings.entries[i].name;
+    newlisting.coordinates = listings.entries[i].coordinates;
+    newlisting.address = listings.entries[i].address;
+
+  
     newlisting.save(function(err)
     {
       if (err) throw err;
     });
-  });
+  }
 
 });
 

@@ -22,14 +22,8 @@ var listingSchema = new Schema({
   },
   coordinates:
   {
-    latidude: 
-    {
-      type: Number
-    }, 
-    longitude:
-    {
-      type: Number
-    }
+    latidude: Number, 
+    longitude:Number
   },
   address: String,
   created_at: Date,

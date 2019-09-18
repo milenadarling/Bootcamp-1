@@ -33,7 +33,7 @@ fs.readFile('listings.json', 'utf8', function(err, data)
     {
       if (err) throw err;
     });
-  }
+  });
 
 });
 

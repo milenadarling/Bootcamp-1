@@ -37,14 +37,9 @@ var removeCable = function() {
     and remove this listing from your database and log the document to the console. 
    */
 
-   Listing.find({code: 'CABL'}, function(err,data){
+   Listing.findOneAndRemove({code: 'CABL'}, function(err,data){
      if(err) throw err;
-     Listing.remove(function(err){
-      
-      if(err) throw err;
-      
       console.log(data);
-     })
    });
 };
 var updatePhelpsLab = function() {
@@ -55,17 +50,14 @@ var updatePhelpsLab = function() {
     Correct Address: 1953 Museum Rd, Gainesville, FL 32603
 
    */
-  Listing.find({name: 'Phelps Laboratory'}, function(err, data)
+  Listing.findOneAndUpdate(
+    {name: 'Phelps Laboratory'},
+    {address:'1953 Museum Rd, Gainesville, FL 32603'},
+    function(err, data)
     {
-      if(err) throw err;
-
-      data.address = '1953 Museum Rd, Gainesville, FL 32603';
-      data.save(function(err)
-      {
         if(err) throw err;
 
         console.log(data);
-      });
     });
 };
 var retrieveAllListings = function() {

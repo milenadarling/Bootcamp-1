@@ -27,8 +27,15 @@ fs.readFileSync('listings.json', 'utf8', function(err, data)
 
   listings = JSON.parse(data);
 
-  listings.entries.forEach(function(Listing) {
-    var newlisting = new Listing(Listing)
+  listings.entries.forEach(function(newlisting) {
+    var newlisting = new listing
+    ({
+
+      code: newlisting.code,
+      name: newlisting.name,
+      coordinates:newlisting.coordinates,
+      address: newlisting.address
+    });
     
     newlisting.save(function(err)
     {

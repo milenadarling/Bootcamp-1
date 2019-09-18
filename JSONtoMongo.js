@@ -12,7 +12,7 @@ var fs = require('fs'),
 /* Connect to your database using mongoose - remember to keep your key secret*/
 //see https://mongoosejs.com/docs/connections.html
 //See https://docs.atlas.mongodb.com/driver-connection/
-mongoose.connect(config.db.uri,
+mongoose.connect('mongodb://mdarling:test_1234@cluster0-shard-00-00-h7vvs.mongodb.net:27017,cluster0-shard-00-01-h7vvs.mongodb.net:27017,cluster0-shard-00-02-h7vvs.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majorityconfig.db.uri',
   {
     useNewUrlParser:true, 
     useUnifiedTopology: true 
@@ -44,7 +44,7 @@ fs.readFileSync('listings.json', 'utf8', function(err, data)
   }
 
 });
-process.exit();
+
 /* 
   Instantiate a mongoose model for each listing object in the JSON file, 
   and then save it to your Mongo database 

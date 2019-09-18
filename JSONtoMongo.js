@@ -19,28 +19,29 @@ mongoose.connect(config.db.uri,
   });
   mongoose.set('useCreateIndex', true);
 
-fs.readFileSync('./listings.json', 'utf8', function(err, data)
+fs.readFileSync('listings.json', 'utf8', function(err, data)
 {
   if (err) throw err;
 
   var listings = JSON.parse(data);
 
-  listings.entries.forEach(function(data) {
-    var newlisting = new listing
-    ({
+  for(var i = 0; i< listings.entries.length; i++)
+  {
+    var newlisting = new Listing();
 
-      code: newlisting.code,
-      name: newlisting.name,
-      coordinates:newlisting.coordinates,
-      address: newlisting.address
-    });
-    
+    newlisting.code = listings.entries[i].code;
+    newlisting.name = listings.entries[i].name;
+    newlisting.coordinates = listings.entries[i].coordinates;
+    newlisting.address = listings.entries[i].address;
+
+  
     newlisting.save(function(err)
     {
       if (err) throw err;
+      else
+        console.log('Data successfully saved');
     });
-
-  });
+  }
 
 });
 process.exit();

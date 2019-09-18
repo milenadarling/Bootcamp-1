@@ -38,6 +38,7 @@ fs.readFileSync('listings.json', 'utf8', function(err, data)
   });
 
 });
+process.exit();
 /* 
   Instantiate a mongoose model for each listing object in the JSON file, 
   and then save it to your Mongo database 

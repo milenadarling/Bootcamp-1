@@ -39,7 +39,7 @@ var removeCable = function() {
 
    Listing.find({code: 'CABL'}, function(err,data){
      if(err) throw err;
-     data.remove(function(err){
+     Listing.remove(function(err){
       
       if(err) throw err;
       

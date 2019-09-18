@@ -31,8 +31,12 @@ var removeCable = function() {
     and remove this listing from your database and log the document to the console. 
    */
 
-   Listing.findOneAndRemove({code: 'CABL'}, function(err,data){
+   Listing.find({code: 'CABL'}, function(err,data){
      if(err) throw err;
+     data.remove(function(err){
+       if(err) throw err;
+       console.log(data);
+     })
    });
 };
 var updatePhelpsLab = function() {

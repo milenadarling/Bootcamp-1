@@ -24,15 +24,11 @@ var listingSchema = new Schema({
   {
     latidude: 
     {
-      type: Number,
-      required: false,
-      unique: false
+      type: Number
     }, 
     longitude:
     {
-      type: Number,
-      required: false,
-      unique: false
+      type: Number
     }
   },
   address: String,

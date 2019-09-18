@@ -60,7 +60,7 @@ var updatePhelpsLab = function() {
       if(err) throw err;
 
       data.address = '1953 Museum Rd, Gainesville, FL 32603';
-      Listing.save(function(err)
+      data.save(function(err)
       {
         if(err) throw err;
 

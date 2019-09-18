@@ -25,7 +25,7 @@ fs.readFile('listings.json', 'utf8', function(err, data)
 
   var listings = JSON.parse(data);
 
-  data.forEach(element)
+  listings.entries.forEach(function(element)
   {
     var newlisting = new Listing(element);
     

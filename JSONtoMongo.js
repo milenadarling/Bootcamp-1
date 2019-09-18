@@ -14,10 +14,10 @@ var fs = require('fs'),
 //See https://docs.atlas.mongodb.com/driver-connection/
 mongoose.connect('mongodb://mdarling:test_1234@cluster0-shard-00-00-h7vvs.mongodb.net:27017,cluster0-shard-00-01-h7vvs.mongodb.net:27017,cluster0-shard-00-02-h7vvs.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majorityconfig.db.uri',
  {
-  //  useNewUrlParser:true, 
-    //useUnifiedTopology: true 
+   useNewUrlParser:true, 
+    useUnifiedTopology: true 
   });
- // mongoose.set('useCreateIndex', true);
+ mongoose.set('useCreateIndex', true);
 
 fs.readFileSync('listings.json', 'utf8', function(err, data)
 {

@@ -25,16 +25,10 @@ fs.readFile('listings.json', 'utf8', function(err, data)
 
   var listings = JSON.parse(data);
 
-  for(var i = 0; i< listings.entries.length; i++)
+  data.forEach(element)
   {
-    var newlisting = new Listing();
-
-    newlisting.code = listings.entries[i].code;
-    newlisting.name = listings.entries[i].name;
-    newlisting.coordinates = listings.entries[i].coordinates;
-    newlisting.address = listings.entries[i].address;
-
-  
+    var newlisting = new Listing(element);
+    
     newlisting.save(function(err)
     {
       if (err) throw err;
@@ -43,6 +37,7 @@ fs.readFile('listings.json', 'utf8', function(err, data)
 
 });
 
+process.exit();
 /* 
   Instantiate a mongoose model for each listing object in the JSON file, 
   and then save it to your Mongo database 
